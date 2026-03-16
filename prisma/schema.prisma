@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("VIEWER")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders    Order[]
+}
+
+model Product {
+  id           String      @id @default(cuid())
+  code         String
+  category     String
+  colour       String
+  variant      String      @default("")
+  mtrs         Float       @default(0)
+  sqftPerPlank Float       @default(0)
+  boxes        Int         @default(0)
+  loosePieces  String      @default("0")
+  totalPieces  Int         @default(0)
+  totalSqft    Float       @default(0)
+  newUpcoming  String      @default("")
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  orderItems   OrderItem[]
+}
+
+model Order {
+  id           String      @id @default(cuid())
+  piNumber     String      @unique
+  piType       String
+  billToName   String
+  billToAddress String
+  shipToName   String
+  shipToAddress String
+  customerGstin String     @default("")
+  totalAmount  Float
+  gstAmount    Float
+  grandTotal   Float
+  remarks      String      @default("")
+  stockDeducted Boolean    @default(false)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  createdBy    String
+  user         User        @relation(fields: [createdBy], references: [id])
+  items        OrderItem[]
+}
+
+model OrderItem {
+  id          String  @id @default(cuid())
+  orderId     String
+  productId   String?
+  description String
+  planks      Int     @default(0)
+  sqft        Float   @default(0)
+  rate        Float
+  amount      Float
+  order       Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product     Product? @relation(fields: [productId], references: [id])
+}
+
+model PICounter {
+  id    String @id @default("counter")
+  count Int    @default(0)
+}

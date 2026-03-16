@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip3 install pandas openpyxl --quiet)",
+      "Bash(python3 -m venv /tmp/voxenv)",
+      "Bash(/tmp/voxenv/bin/pip install pandas openpyxl --quiet)",
+      "Bash(/tmp/voxenv/bin/python3 -c \":*)",
+      "Bash(npm install --legacy-peer-deps)",
+      "Bash(mkdir -p /Users/kartiksharma/Desktop/RoyaleCladdingsManagement/app/api/auth/'[...nextauth]')",
+      "Bash(mkdir -p /Users/kartiksharma/Desktop/RoyaleCladdingsManagement/app/api/inventory/'[id]')",
+      "Bash(mkdir -p /Users/kartiksharma/Desktop/RoyaleCladdingsManagement/app/api/orders/'[id]')",
+      "Bash(mkdir -p /Users/kartiksharma/Desktop/RoyaleCladdingsManagement/app/'dashboard/orders/[id]')",
+      "Bash(/tmp/voxenv/bin/python3 /tmp/gen_seed.py)",
+      "Bash(npx prisma generate)",
+      "Bash(npx prisma db push)",
+      "Bash(export DATABASE_URL=\"file:./dev.db\")",
+      "Bash(npx ts-node --compiler-options '{\"\"module\"\":\"\"CommonJS\"\"}' prisma/seed.ts)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git pull origin master --allow-unrelated-histories)",
+      "Bash(git pull origin main --allow-unrelated-histories)",
+      "Bash(git fetch origin)",
+      "Bash(git push -u origin master)",
+      "Bash(xargs du -sh)",
+      "Bash(git rm -r --cached node_modules .next prisma/dev.db .env.local .claude/settings.local.json)",
+      "Bash(git add .gitignore)",
+      "Bash(git commit -m \"Add .gitignore, remove node_modules and build artifacts from tracking\")",
+      "Bash(git config http.postBuffer 524288000)",
+      "Bash(git config http.maxRequestBuffer 100M)",
+      "Bash(git push -u origin master --verbose)",
+      "Bash(rm -rf .git)",
+      "Bash(git init)",
+      "Bash(git add .)",
+      "Bash(git commit -m \"Initial commit\")"
+    ]
+  }
+}
