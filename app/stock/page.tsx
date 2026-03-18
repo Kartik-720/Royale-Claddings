@@ -154,7 +154,7 @@ export default function StockPage() {
                         <th className="text-right">Mtrs</th>
                         <th className="text-right">{cat === "SPC FLOORING HB" ? "A Variant (Sq Ft)" : "Sq Ft/Plank"}</th>
                         <th className="text-right">{cat === "SPC FLOORING HB" ? "B Variant (Boxes)" : ["TRIMS","VOLOS TRIMS","OTHER TRIMS"].includes(cat) ? "Pieces" : "Boxes"}</th>
-                        <th className="text-right">Pieces</th>
+                        <th className="text-right">{["TRIMS","VOLOS TRIMS","OTHER TRIMS"].includes(cat) ? "Total Pcs" : "Pieces"}</th>
                         <th className="text-right">Loose</th>
                         <th className="text-right">Total Sq Ft</th>
                         <th>Status</th>
