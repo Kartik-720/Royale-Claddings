@@ -93,15 +93,29 @@ export default function OrderDetailPage() {
       <div className="bg-white p-8 max-w-4xl mx-auto my-6 shadow-sm rounded-xl no-print-shadow print-page">
         <style jsx global>{`
           @media print {
-            @page { size: A4 portrait; margin: 6mm 8mm; }
+            @page { size: A4 portrait; margin: 5mm 8mm; }
             body * { visibility: hidden !important; }
             .print-page, .print-page * { visibility: visible !important; }
             .print-page {
               position: absolute !important; left: 0 !important; top: 0 !important;
-              width: 100% !important; margin: 0 !important; padding: 3mm 5mm !important;
+              width: 100% !important; margin: 0 !important; padding: 2mm 4mm !important;
               box-shadow: none !important; border-radius: 0 !important;
-              zoom: 0.78 !important;
+              font-size: 9pt !important; line-height: 1.25 !important;
             }
+            .print-page img { height: 48px !important; }
+            .print-page h2 { font-size: 11pt !important; padding: 2px 12px !important; }
+            .print-page .mb-6 { margin-bottom: 6px !important; }
+            .print-page .mb-5 { margin-bottom: 5px !important; }
+            .print-page .mt-5 { margin-top: 5px !important; }
+            .print-page .mt-6 { margin-top: 6px !important; }
+            .print-page .py-2 { padding-top: 2px !important; padding-bottom: 2px !important; }
+            .print-page .py-3 { padding-top: 3px !important; padding-bottom: 3px !important; }
+            .print-page .px-3 { padding-left: 4px !important; padding-right: 4px !important; }
+            .print-page .px-4 { padding-left: 5px !important; padding-right: 5px !important; }
+            .print-page .p-3 { padding: 4px !important; }
+            .print-page .p-8 { padding: 4mm !important; }
+            .print-page .gap-6 { gap: 8px !important; }
+            .print-page .h-12 { height: 24px !important; }
             .no-print { display: none !important; }
           }
         `}</style>
@@ -178,7 +192,7 @@ export default function OrderDetailPage() {
               </tr>
             ))}
             {/* Empty rows to fill space */}
-            {Array.from({ length: Math.max(0, 5 - order.items.length) }).map((_, i) => (
+            {Array.from({ length: Math.max(0, 3 - order.items.length) }).map((_, i) => (
               <tr key={`empty-${i}`} className={(order.items.length + i) % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                 <td className="border border-gray-200 px-3 py-2">&nbsp;</td>
                 <td className="border border-gray-200 px-3 py-2"></td>
