@@ -149,8 +149,8 @@ export default function InventoryPage() {
                       <th>Colour</th>
                       <th>Variant</th>
                       <th className="text-right">Mtrs</th>
-                      <th className="text-right">Sq Ft/Plank</th>
-                      <th className="text-right">Boxes</th>
+                      <th className="text-right">{cat === "SPC FLOORING HB" ? "A Variant (Sq Ft)" : "Sq Ft/Plank"}</th>
+                      <th className="text-right">{cat === "SPC FLOORING HB" ? "B Variant (Boxes)" : ["TRIMS","VOLOS TRIMS","OTHER TRIMS"].includes(cat) ? "Pieces" : "Boxes"}</th>
                       <th className="text-right">Total Pcs</th>
                       <th>Loose</th>
                       <th className="text-right">Total Sq Ft</th>

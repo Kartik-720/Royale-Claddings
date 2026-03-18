@@ -117,9 +117,8 @@ export default function NewOrderPage() {
   };
 
   const totalAmount = cart.reduce((s, c) => s + c.amount, 0);
-  const gstRate = piType === "DELHI" ? 0.18 : 0.09;
-  const gstLabel = piType === "DELHI" ? "IGST 18%" : "CGST 9% + SGST 9%";
-  const gstAmount = parseFloat((totalAmount * (piType === "DELHI" ? 0.18 : 0.18)).toFixed(2));
+  const gstLabel = piType === "DELHI" ? "CGST 9% + SGST 9%" : "IGST 18%";
+  const gstAmount = parseFloat((totalAmount * 0.18).toFixed(2));
   const grandTotal = parseFloat((totalAmount + gstAmount).toFixed(2));
 
   const submitOrder = async () => {
@@ -173,8 +172,8 @@ export default function NewOrderPage() {
           <h3 className="font-semibold text-gray-900 mb-4">Invoice Type</h3>
           <div className="grid grid-cols-2 gap-3">
             {([
-              { value: "DELHI", label: "Delhi Region", sub: "IGST @ 18%", icon: "🏙️" },
-              { value: "OUTSIDE", label: "Outside Delhi", sub: "CGST + SGST @ 9% each", icon: "🌏" },
+              { value: "DELHI", label: "Delhi Region", sub: "CGST + SGST @ 9% each", icon: "🏙️" },
+              { value: "OUTSIDE", label: "Outside Delhi", sub: "IGST @ 18%", icon: "🌏" },
             ] as const).map(opt => (
               <button
                 key={opt.value}
@@ -209,12 +208,19 @@ export default function NewOrderPage() {
               </div>
             </div>
             <div className="space-y-3">
-              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Ship To</p>
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Ship To</p>
+                <button
+                  type="button"
+                  onClick={() => { setShipToName(billToName); setShipToAddress(billToAddress); }}
+                  className="text-xs text-brand-gold hover:underline font-medium"
+                >
+                  Same as Bill To
+                </button>
+              </div>
               <div>
                 <label className="block text-xs font-medium text-gray-500 mb-1">Name / Company</label>
-                <input value={shipToName} onChange={e => {
-                  setShipToName(e.target.value);
-                }} className="input" placeholder="Same as bill to"/>
+                <input value={shipToName} onChange={e => setShipToName(e.target.value)} className="input" placeholder="Same as bill to"/>
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-500 mb-1">Address</label>
@@ -534,7 +540,7 @@ export default function NewOrderPage() {
                 <span>{formatINR(totalAmount)}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-gray-500">GST ({piType === "DELHI" ? "18%" : "18%"})</span>
+                <span className="text-gray-500">GST (18%)</span>
                 <span>{formatINR(gstAmount)}</span>
               </div>
               <div className="flex justify-between text-base font-bold pt-1.5 border-t border-gray-100">

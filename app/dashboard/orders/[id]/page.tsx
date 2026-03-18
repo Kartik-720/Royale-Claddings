@@ -29,6 +29,7 @@ export default function OrderDetailPage() {
   const gstLabelCGST = "CGST @ 9%";
   const gstLabelSGST = "SGST @ 9%";
   const isDelhi = order.piType === "DELHI";
+  // Delhi = CGST+SGST @ 9% each; Outside Delhi = IGST @ 18%
   const today = new Date(order.createdAt);
   const dateStr = today.toLocaleDateString("en-IN", { day: "2-digit", month: "long", year: "numeric" });
 
@@ -70,7 +71,7 @@ export default function OrderDetailPage() {
         </div>
         <div className="flex items-center gap-3">
           <span className={`badge text-xs ${isDelhi ? "bg-blue-100 text-blue-700" : "bg-purple-100 text-purple-700"}`}>
-            {isDelhi ? "Delhi — IGST 18%" : "Outside Delhi — CGST+SGST 9%"}
+            {isDelhi ? "Delhi — CGST+SGST 9%" : "Outside Delhi — IGST 18%"}
           </span>
           <span className={`badge text-xs ${order.stockDeducted ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
             {order.stockDeducted ? "✓ Stock Deducted" : "Stock Not Deducted"}
@@ -92,9 +93,12 @@ export default function OrderDetailPage() {
       <div className="bg-white p-8 max-w-4xl mx-auto my-6 shadow-sm rounded-xl no-print-shadow print-page">
         <style jsx global>{`
           @media print {
+            @page { size: A4 portrait; margin: 8mm 10mm; }
             body * { visibility: hidden !important; }
             .print-page, .print-page * { visibility: visible !important; }
-            .print-page { position: fixed !important; left: 0 !important; top: 0 !important; width: 100% !important; margin: 0 !important; padding: 20mm 15mm !important; box-shadow: none !important; border-radius: 0 !important; }
+            .print-page { position: absolute !important; left: 0 !important; top: 0 !important; width: 100% !important; margin: 0 !important; padding: 4mm 6mm !important; box-shadow: none !important; border-radius: 0 !important; font-size: 10px !important; }
+            .print-page h1 { font-size: 18px !important; }
+            .print-page h2 { font-size: 13px !important; }
             .no-print { display: none !important; }
           }
         `}</style>
@@ -102,8 +106,8 @@ export default function OrderDetailPage() {
         {/* Header */}
         <div className="flex justify-between items-start mb-6 pb-4 border-b-2 border-gray-900">
           <div className="flex-1">
-            <h1 className="text-3xl font-black text-gray-900 tracking-tight">ROYALE CLADDINGS</h1>
-            <div className="w-16 h-1 bg-brand-gold mt-2 mb-3"/>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/royale-logo.png" alt="Royale Claddings" className="h-20 w-auto object-contain mb-1"/>
           </div>
           <div className="text-right text-xs text-gray-600 space-y-0.5">
             <p className="font-medium">PLOT NO. 41, K.NO.171/6,</p>
@@ -171,7 +175,7 @@ export default function OrderDetailPage() {
               </tr>
             ))}
             {/* Empty rows to fill space */}
-            {Array.from({ length: Math.max(0, 8 - order.items.length) }).map((_, i) => (
+            {Array.from({ length: Math.max(0, 5 - order.items.length) }).map((_, i) => (
               <tr key={`empty-${i}`} className={(order.items.length + i) % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                 <td className="border border-gray-200 px-3 py-2">&nbsp;</td>
                 <td className="border border-gray-200 px-3 py-2"></td>
@@ -198,11 +202,6 @@ export default function OrderDetailPage() {
                 <span className="font-semibold">{formatINR(order.totalAmount)}</span>
               </div>
               {isDelhi ? (
-                <div className="flex justify-between px-3 py-1.5 text-xs">
-                  <span className="text-gray-600">{gstLabel18}</span>
-                  <span className="font-semibold">{formatINR(order.gstAmount)}</span>
-                </div>
-              ) : (
                 <>
                   <div className="flex justify-between px-3 py-1.5 text-xs">
                     <span className="text-gray-600">{gstLabelCGST}</span>
@@ -213,6 +212,11 @@ export default function OrderDetailPage() {
                     <span className="font-semibold">{formatINR(order.gstAmount / 2)}</span>
                   </div>
                 </>
+              ) : (
+                <div className="flex justify-between px-3 py-1.5 text-xs">
+                  <span className="text-gray-600">{gstLabel18}</span>
+                  <span className="font-semibold">{formatINR(order.gstAmount)}</span>
+                </div>
               )}
               <div className="flex justify-between px-3 py-2 text-sm font-bold bg-gray-50">
                 <span>GRAND TOTAL</span>
