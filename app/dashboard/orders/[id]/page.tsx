@@ -93,12 +93,15 @@ export default function OrderDetailPage() {
       <div className="bg-white p-8 max-w-4xl mx-auto my-6 shadow-sm rounded-xl no-print-shadow print-page">
         <style jsx global>{`
           @media print {
-            @page { size: A4 portrait; margin: 8mm 10mm; }
+            @page { size: A4 portrait; margin: 6mm 8mm; }
             body * { visibility: hidden !important; }
             .print-page, .print-page * { visibility: visible !important; }
-            .print-page { position: absolute !important; left: 0 !important; top: 0 !important; width: 100% !important; margin: 0 !important; padding: 4mm 6mm !important; box-shadow: none !important; border-radius: 0 !important; font-size: 10px !important; }
-            .print-page h1 { font-size: 18px !important; }
-            .print-page h2 { font-size: 13px !important; }
+            .print-page {
+              position: absolute !important; left: 0 !important; top: 0 !important;
+              width: 100% !important; margin: 0 !important; padding: 3mm 5mm !important;
+              box-shadow: none !important; border-radius: 0 !important;
+              zoom: 0.78 !important;
+            }
             .no-print { display: none !important; }
           }
         `}</style>
