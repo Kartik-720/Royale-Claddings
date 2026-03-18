@@ -66,7 +66,7 @@ export default function Sidebar() {
   const { data: session } = useSession();
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-[240px] bg-[#0f1117] flex flex-col z-40">
+    <aside className="hidden md:flex fixed left-0 top-0 h-full w-[240px] bg-[#0f1117] flex-col z-40">
       {/* Logo */}
       <div className="px-5 py-5 border-b border-white/10">
         <div className="flex items-center gap-3">

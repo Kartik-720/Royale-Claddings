@@ -154,7 +154,7 @@ export default function NewOrderPage() {
 
   if (step === "checkout" || step === "confirm") {
     return (
-      <div className="p-8 max-w-4xl">
+      <div className="p-4 sm:p-8 max-w-4xl">
         <div className="flex items-center gap-4 mb-8">
           <button onClick={() => setStep("cart")} className="text-gray-400 hover:text-gray-600">
             <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -195,7 +195,7 @@ export default function NewOrderPage() {
         {/* Bill To / Ship To */}
         <div className="card p-5 mb-5">
           <h3 className="font-semibold text-gray-900 mb-4">Customer Details</h3>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div className="space-y-3">
               <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Bill To</p>
               <div>
@@ -339,7 +339,7 @@ export default function NewOrderPage() {
   return (
     <div className="flex h-full">
       {/* Main product area */}
-      <div className={`flex-1 overflow-auto p-8 transition-all ${showCart && cart.length > 0 ? "pr-4" : ""}`}>
+      <div className={`flex-1 overflow-auto p-4 sm:p-8 transition-all ${showCart && cart.length > 0 ? "md:pr-4" : ""}`}>
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">New Order</h1>
@@ -451,7 +451,7 @@ export default function NewOrderPage() {
 
       {/* Cart Panel */}
       {showCart && cart.length > 0 && (
-        <div className="w-[420px] flex-shrink-0 bg-white border-l border-gray-200 flex flex-col h-full overflow-hidden slide-in">
+        <div className="fixed inset-0 z-50 md:relative md:inset-auto md:w-[420px] md:flex-shrink-0 bg-white md:border-l border-gray-200 flex flex-col md:h-full overflow-hidden slide-in">
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
             <h2 className="font-bold text-gray-900">Cart ({cart.length})</h2>
             <button onClick={() => setShowCart(false)} className="text-gray-400 hover:text-gray-600">
@@ -490,6 +490,7 @@ export default function NewOrderPage() {
                       type="number"
                       value={item.planks}
                       onChange={e => updateCartItem(idx, "planks", parseInt(e.target.value) || 0)}
+                      onFocus={e => e.target.select()}
                       className="input py-1 text-xs text-right"
                     />
                   </div>
@@ -500,6 +501,7 @@ export default function NewOrderPage() {
                       step="0.01"
                       value={item.sqft}
                       onChange={e => updateCartItem(idx, "sqft", parseFloat(e.target.value) || 0)}
+                      onFocus={e => e.target.select()}
                       className="input py-1 text-xs text-right"
                     />
                   </div>
@@ -510,6 +512,7 @@ export default function NewOrderPage() {
                       step="0.01"
                       value={item.rate}
                       onChange={e => updateCartItem(idx, "rate", parseFloat(e.target.value) || 0)}
+                      onFocus={e => e.target.select()}
                       className="input py-1 text-xs text-right"
                     />
                   </div>
