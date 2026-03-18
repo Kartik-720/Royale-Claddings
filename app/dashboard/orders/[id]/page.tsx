@@ -102,7 +102,7 @@ export default function OrderDetailPage() {
               box-shadow: none !important; border-radius: 0 !important;
               font-size: 9pt !important; line-height: 1.25 !important;
             }
-            .print-page img { height: 72px !important; }
+            .print-page img { height: 96px !important; }
             .print-page h2 { font-size: 11pt !important; padding: 2px 12px !important; }
             .print-page .mb-6 { margin-bottom: 6px !important; }
             .print-page .mb-5 { margin-bottom: 5px !important; }

@@ -63,7 +63,12 @@
       "Bash(export DATABASE_URL=\"postgresql://neondb_owner:npg_uOCG1rdw8Dqi@ep-solitary-mode-a1w5br2y-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require\")",
       "Bash(export DIRECT_URL=\"postgresql://neondb_owner:npg_uOCG1rdw8Dqi@ep-solitary-mode-a1w5br2y.ap-southeast-1.aws.neon.tech/neondb?sslmode=require\")",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"require\\(''xlsx''\\); console.log\\(''xlsx ok''\\)\")",
+      "Bash(sed -i '' 's/.print-page img { height: 72px !important; }/.print-page img { height: 96px !important; }/' /Users/kartiksharma/Desktop/RoyaleCladdingsManagement/app/dashboard/orders/[id]/page.tsx)",
+      "Bash(grep \"print-page img\" /Users/kartiksharma/Desktop/RoyaleCladdingsManagement/app/dashboard/orders/[id]/page.tsx)",
+      "Bash(python3 -:*)"
     ]
   }
 }
