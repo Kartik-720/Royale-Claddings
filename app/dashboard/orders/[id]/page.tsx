@@ -102,7 +102,7 @@ export default function OrderDetailPage() {
               box-shadow: none !important; border-radius: 0 !important;
               font-size: 9pt !important; line-height: 1.25 !important;
             }
-            .print-page img { height: 48px !important; }
+            .print-page img { height: 72px !important; }
             .print-page h2 { font-size: 11pt !important; padding: 2px 12px !important; }
             .print-page .mb-6 { margin-bottom: 6px !important; }
             .print-page .mb-5 { margin-bottom: 5px !important; }
@@ -124,7 +124,7 @@ export default function OrderDetailPage() {
         <div className="flex justify-between items-start mb-6 pb-4 border-b-2 border-gray-900">
           <div className="flex-1">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/royale-logo.png" alt="Royale Claddings" className="h-20 w-auto object-contain mb-1"/>
+            <img src="/royale-logo.png" alt="Royale Claddings" className="h-28 w-auto object-contain mb-1"/>
           </div>
           <div className="text-right text-xs text-gray-600 space-y-0.5">
             <p className="font-medium">PLOT NO. 41, K.NO.171/6,</p>
