@@ -404,25 +404,25 @@ export default function NewOrderPage() {
                         <th>Code</th>
                         <th>Colour</th>
                         <th>Variant</th>
-                        <th className="text-right">Mtrs</th>
-                        <th className="text-right">Sq Ft/Plank</th>
-                        <th className="text-right">Boxes</th>
-                        <th className="text-right">Sq Ft</th>
+                        <th className="text-center">Mtrs</th>
+                        <th className="text-center">{cat === "SPC FLOORING HB" ? "A Variant (Sq Ft)" : "Sq Ft/Plank"}</th>
+                        <th className="text-center">{cat === "SPC FLOORING HB" ? "B Variant (Boxes)" : ["TRIMS","VOLOS TRIMS","OTHER TRIMS"].includes(cat) ? "Pieces" : "Boxes"}</th>
+                        <th className="text-center">Sq Ft</th>
                         <th></th>
                       </tr>
                     </thead>
                     <tbody>
-                      {items.map(p => {
+                      {(cat === "SPC FLOORING" ? items.slice().sort((a, b) => a.sqftPerPlank - b.sqftPerPlank) : items).map(p => {
                         const inCart = cart.find(c => c.productId === p.id);
                         return (
                           <tr key={p.id}>
                             <td className="font-mono text-xs font-medium">{p.code}</td>
                             <td className="font-medium">{p.colour}</td>
                             <td className="text-gray-500">{p.variant}</td>
-                            <td className="text-right tabular-nums">{p.mtrs > 0 ? p.mtrs : "—"}</td>
-                            <td className="text-right tabular-nums">{p.sqftPerPlank > 0 ? p.sqftPerPlank : "—"}</td>
-                            <td className="text-right tabular-nums font-medium">{p.boxes}</td>
-                            <td className="text-right tabular-nums">{p.totalSqft > 0 ? p.totalSqft.toFixed(1) : "—"}</td>
+                            <td className="text-center tabular-nums">{p.mtrs > 0 ? p.mtrs : "—"}</td>
+                            <td className="text-center tabular-nums">{p.sqftPerPlank > 0 ? p.sqftPerPlank : "—"}</td>
+                            <td className="text-center tabular-nums font-medium">{p.boxes}</td>
+                            <td className="text-center tabular-nums">{p.totalSqft > 0 ? p.totalSqft.toFixed(1) : "—"}</td>
                             <td>
                               <button
                                 onClick={() => addToCart(p)}
