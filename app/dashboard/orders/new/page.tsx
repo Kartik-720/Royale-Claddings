@@ -488,9 +488,9 @@ export default function NewOrderPage() {
                     <label className="block text-xs text-gray-400 mb-1">Planks</label>
                     <input
                       type="number"
-                      value={item.planks}
+                      value={item.planks === 0 ? "" : item.planks}
                       onChange={e => updateCartItem(idx, "planks", parseInt(e.target.value) || 0)}
-                      onFocus={e => e.target.select()}
+                      placeholder="0"
                       className="input py-1 text-xs text-right"
                     />
                   </div>
@@ -499,9 +499,9 @@ export default function NewOrderPage() {
                     <input
                       type="number"
                       step="0.01"
-                      value={item.sqft}
+                      value={item.sqft === 0 ? "" : item.sqft}
                       onChange={e => updateCartItem(idx, "sqft", parseFloat(e.target.value) || 0)}
-                      onFocus={e => e.target.select()}
+                      placeholder="0"
                       className="input py-1 text-xs text-right"
                     />
                   </div>
@@ -510,9 +510,9 @@ export default function NewOrderPage() {
                     <input
                       type="number"
                       step="0.01"
-                      value={item.rate}
+                      value={item.rate === 0 ? "" : item.rate}
                       onChange={e => updateCartItem(idx, "rate", parseFloat(e.target.value) || 0)}
-                      onFocus={e => e.target.select()}
+                      placeholder="0"
                       className="input py-1 text-xs text-right"
                     />
                   </div>

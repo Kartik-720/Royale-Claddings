@@ -148,12 +148,12 @@ export default function InventoryPage() {
                       <th>Code</th>
                       <th>Colour</th>
                       <th>Variant</th>
-                      <th className="text-right">Mtrs</th>
-                      <th className="text-right">{cat === "SPC FLOORING HB" ? "A Variant (Sq Ft)" : "Sq Ft/Plank"}</th>
-                      <th className="text-right">{cat === "SPC FLOORING HB" ? "B Variant (Boxes)" : ["TRIMS","VOLOS TRIMS","OTHER TRIMS"].includes(cat) ? "Pieces" : "Boxes"}</th>
-                      <th className="text-right">Total Pcs</th>
-                      <th>Loose</th>
-                      <th className="text-right">Total Sq Ft</th>
+                      <th className="text-center">Mtrs</th>
+                      <th className="text-center">{cat === "SPC FLOORING HB" ? "A Variant (Sq Ft)" : "Sq Ft/Plank"}</th>
+                      <th className="text-center">{cat === "SPC FLOORING HB" ? "B Variant (Boxes)" : ["TRIMS","VOLOS TRIMS","OTHER TRIMS"].includes(cat) ? "Pieces" : "Boxes"}</th>
+                      <th className="text-center">Total Pcs</th>
+                      <th className="text-center">Loose</th>
+                      <th className="text-center">Total Sq Ft</th>
                       <th>Upcoming</th>
                       <th>Status</th>
                       <th></th>
@@ -197,12 +197,12 @@ export default function InventoryPage() {
                           <td className="font-mono text-xs font-medium">{p.code}</td>
                           <td className="font-medium">{p.colour}</td>
                           <td className="text-gray-500">{p.variant}</td>
-                          <td className="text-right tabular-nums">{p.mtrs > 0 ? p.mtrs : "—"}</td>
-                          <td className="text-right tabular-nums">{p.sqftPerPlank > 0 ? p.sqftPerPlank : "—"}</td>
-                          <td className="text-right tabular-nums font-medium">{p.boxes}</td>
-                          <td className="text-right tabular-nums">{p.totalPieces || "—"}</td>
+                          <td className="text-center tabular-nums">{p.mtrs > 0 ? p.mtrs : "—"}</td>
+                          <td className="text-center tabular-nums">{p.sqftPerPlank > 0 ? p.sqftPerPlank : "—"}</td>
+                          <td className="text-center tabular-nums font-medium">{p.boxes}</td>
+                          <td className="text-center tabular-nums">{p.totalPieces || "—"}</td>
                           <td className="text-xs text-gray-500 max-w-[80px] truncate">{p.loosePieces}</td>
-                          <td className="text-right tabular-nums font-medium">{p.totalSqft > 0 ? formatNumber(p.totalSqft, 2) : "—"}</td>
+                          <td className="text-center tabular-nums font-medium">{p.totalSqft > 0 ? formatNumber(p.totalSqft, 2) : "—"}</td>
                           <td className="text-xs text-amber-600 max-w-[100px] truncate">{p.newUpcoming}</td>
                           <td>
                             <span className={`badge text-xs ${
