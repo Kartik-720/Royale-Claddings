@@ -161,7 +161,7 @@ export default function StockPage() {
                       </tr>
                     </thead>
                     <tbody>
-                      {items.map((p) => {
+                      {(cat === "SPC FLOORING HB" ? items.slice().sort((a, b) => a.sqftPerPlank - b.sqftPerPlank) : items).map((p) => {
                         const status = getStockStatus(p.boxes, p.totalSqft);
                         return (
                           <tr key={p.id}>

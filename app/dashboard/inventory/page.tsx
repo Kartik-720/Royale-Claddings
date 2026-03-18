@@ -160,7 +160,7 @@ export default function InventoryPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {items.map((p) => {
+                    {(cat === "SPC FLOORING HB" ? items.slice().sort((a, b) => a.sqftPerPlank - b.sqftPerPlank) : items).map((p) => {
                       const isEditing = editingId === p.id;
                       const status = getStockStatus(p.boxes, p.totalSqft);
 
