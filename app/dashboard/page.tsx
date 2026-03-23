@@ -144,6 +144,22 @@ export default async function DashboardPage() {
                   <p className="text-xs text-gray-500">Update stock levels</p>
                 </div>
               </Link>
+              <a
+                href="/api/backup"
+                download
+                className="flex items-center gap-3 p-3 rounded-lg bg-green-50 hover:bg-green-100 transition-colors"
+              >
+                <span className="w-8 h-8 rounded-lg bg-green-500 flex items-center justify-center">
+                  <svg width="14" height="14" fill="none" stroke="white" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                    <polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">Download Backup</p>
+                  <p className="text-xs text-gray-500">All products & orders as JSON</p>
+                </div>
+              </a>
             </div>
           </div>
 
