@@ -21,9 +21,12 @@ const config: Config = {
           navy: "#0f1117",
           "navy-light": "#1a1f2e",
         },
+        warm: {
+          bg: "#F7F5F2",
+        },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
       },
     },
   },

@@ -50,7 +50,7 @@ export default function StockPage() {
   const totalBoxes = products.reduce((s, p) => s + p.boxes, 0);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-warm-bg">
       {/* Header */}
       <header className="bg-[#0f1117] shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
